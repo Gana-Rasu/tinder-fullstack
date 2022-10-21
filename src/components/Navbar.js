@@ -2,7 +2,14 @@ import React from "react";
 import whiteLogo from "../images/tinder-logo-white.png";
 import colorLogo from "../images/color-logo-tinder.png";
 
-function Navbar({ minimal, authToken }) {
+function Navbar({ minimal, showModal, setShowModal, setSignup }) {
+  const handleClick = () => {
+    setShowModal(true);
+    setSignup(false);
+  };
+
+  const authToken =false;
+
   return (
     <nav>
       <div className="logo-container">
@@ -13,7 +20,15 @@ function Navbar({ minimal, authToken }) {
         />
       </div>
 
-      {!authToken && !minimal && <button className="nav-button">LOG IN </button>}
+      {!authToken && !minimal && (
+        <button
+          className="nav-button"
+          onClick={handleClick}
+          disabled={showModal}
+        >
+          Log in{" "}
+        </button>
+      )}
     </nav>
   );
 }
