@@ -1,0 +1,2 @@
+1) installed react router
+2) installed tinder cards - https://github.com/3DJakob/react-tinder-card-demo/blob/master/src/examples/Simple.js
