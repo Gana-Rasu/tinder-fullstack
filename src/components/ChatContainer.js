@@ -1,8 +1,23 @@
 import React from 'react'
+import ChatDisplay from './ChatDisplay'
+import ChatHeader from './ChatHeader'
+import MatchesDisplay from './MatchesDisplay'
 
 function ChatContainer() {
   return (
-    <div>ChatContainer</div>
+    <div className='chat-container'>
+
+      <ChatHeader/>
+
+        <div>
+          <button className='option' >Matched</button>
+          <button className='option' >Chat</button>
+        </div>
+
+        <MatchesDisplay/>
+        <ChatDisplay/>
+
+    </div>
   )
 }
 
