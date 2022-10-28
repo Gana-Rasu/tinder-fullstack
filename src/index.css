@@ -248,6 +248,7 @@ nav .logo-container .logo{
   position: absolute;
   bottom: 0;
   padding: 10px;
+  font-weight: bold;
 }
 
 /* CHAT CONTAINER */
@@ -269,4 +270,49 @@ justify-content: space-between;
 align-items: center;
 }
 
-/* .chat-container */
+.chat-container .option{
+  border: none;
+  background-color: white;
+  border-bottom: solid 4px red;
+  font-size: 20px;
+  margin: 2px;
+  padding: 10px;
+}
+
+.chat-container .option:disabled{
+border-bottom: solid 4px grey;  
+}
+
+.chat-container .profile,.chat-container .log-out-icon{
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.img-container{
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  overflow: hidden;
+  margin: 10px;
+}
+
+.img-container img{
+  width: 100%;
+
+}
+
+/* CHAT DISPLAY */
+
+.chat-display{
+  padding: 20px;
+  height: 45vh;
+  overflow-y: auto;
+}
+
+.chat-input{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
