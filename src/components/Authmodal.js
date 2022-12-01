@@ -26,9 +26,14 @@ function Authmodal({ setShowModal, isSignup }) {
         setError("password not matched");
         return
       }
-     const response = await axios.post("http://localhost:8000/signup",{email,password});
+     const response = await axios.post(`http://localhost:8000/${isSignup ? 'signup' : 'login'}`,{email,password});
+    //  to save values as cookies
+
+    //  setCookie('AuthToken',response.data.token)
+
      const success = response.status === 201;
-     if(success) navigate("/onboarding")
+     if(success && isSignup) navigate("/onboarding");
+     if(success && !isSignup) navigate("/dashboard")
 
       
     } catch (error) {

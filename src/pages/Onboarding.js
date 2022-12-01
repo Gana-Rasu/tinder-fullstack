@@ -185,7 +185,7 @@ function Onboarding() {
               required={true}
             />
             <div className="photo-container">
-              <img src={formData.url} alt="profile pic preview" />
+              {formData.url && <img src={formData.url} alt="profile pic preview" />}
             </div>
           </section>
         </form>
