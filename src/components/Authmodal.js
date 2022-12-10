@@ -11,7 +11,7 @@ function Authmodal({ setShowModal, isSignup }) {
   const [password, setPassword] = useState(null);
   const [confirmpassword, setConfirmpassword] = useState(null);
   const [error, setError] = useState(null);
-  const [cookies,setCookie,removeCookie] = useCookies(['user']);
+  const [cookie,setCookie,removeCookie] = useCookies(['user']);
 
   console.log(email, password, confirmpassword);
 
@@ -26,10 +26,12 @@ function Authmodal({ setShowModal, isSignup }) {
         setError("password not matched");
         return
       }
-     const response = await axios.post(`http://localhost:8000/${isSignup ? 'signup' : 'login'}`,{email,password});
+     const response = await axios.post(`http://localhost:4000/${isSignup ? 'signup' : 'login'}`,{email,password});
+     console.log(response);
     //  to save values as cookies
 
      setCookie('AuthToken',response.data.token)
+     setCookie('UserId',response.data.userId)
 
      const success = response.status === 201;
      if(success && isSignup) navigate("/onboarding");
