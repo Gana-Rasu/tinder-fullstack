@@ -1,9 +1,33 @@
-import React,{useState} from "react";
-// import TinderCard from "react-tinder-card";
+import axios from "axios";
+import React,{useEffect, useState} from "react";
 import { CardSwiper } from "react-card-rotate-swiper";
 import ChatContainer from "../components/ChatContainer";
+import {useCookies} from "react-cookie";
+
 
 function Dashboard() {
+
+  const [user,setUser] = useState(null);
+  const [cookie,setCookie,removeCookie] = useCookies(['user']);
+
+  
+
+  const userId = cookie.UserId
+
+  const getUser = async ()=> {
+    try{
+      const response = await axios.get(`http://localhost:4000/user/${userId}`)
+      setUser(response.data);
+    }
+    catch(error){
+      console.log(error);
+    }
+  }
+
+  useEffect(()=>{
+    getUser();
+  },[])
+
   const characters = [
     {
       name: "Richard Hendricks",
@@ -42,8 +66,9 @@ function Dashboard() {
   // };
 
   return (
-    <div className="dashboard">
-      <ChatContainer/>
+    <>
+    {user && <div className="dashboard">
+      <ChatContainer user={user} />
       <div className="swipe-container">
         <div className="card-container">
           {/* {characters.map((character) => (
@@ -86,7 +111,8 @@ function Dashboard() {
 
         </div>
       </div>
-    </div>
+    </div>}
+    </>
   );
 }
 
