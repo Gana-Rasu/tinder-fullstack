@@ -30,8 +30,10 @@ function Authmodal({ setShowModal, isSignup }) {
      console.log(response);
     //  to save values as cookies
 
-     setCookie('AuthToken',response.data.token)
-     setCookie('UserId',response.data.userId)
+     setCookie('AuthToken',response.data.token);
+     setCookie('UserId',response.data.userId);
+
+
 
      const success = response.status === 201;
      if(success && isSignup) navigate("/onboarding");
@@ -86,7 +88,6 @@ function Authmodal({ setShowModal, isSignup }) {
         <p>{error}</p>
       </form>
       <hr />
-      {/* <h2>GET THE APP</h2> */}
     </div>
   );
 }
