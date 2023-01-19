@@ -72,13 +72,13 @@ function Dashboard() {
   // console.log(genderedUsers);
   // console.log("last user",user);
 
-  let matchedUserIds = [];
-  if (user.length !== 0) {
-    matchedUserIds = user?.matches.map(({ user_id }) => user_id).concat(userId);
-  }
-  const filteredGenderedUsers = genderedUsers?.filter(
-    (genderedUser) => !matchedUserIds.includes(genderedUser.user_id)
-  );
+  // let matchedUserIds = [];
+  // if (user.length !== 0) {
+  //   matchedUserIds = user?.matches.map(({ user_id }) => user_id).concat(userId);
+  // }
+  // const filteredGenderedUsers = genderedUsers?.filter(
+  //   (genderedUser) => !matchedUserIds.includes(genderedUser.user_id)
+  // );
 
   return (
     <>
@@ -103,7 +103,7 @@ function Dashboard() {
           </TinderCard>
         ))} */}
 
-              {filteredGenderedUsers.map((genderedUser) => (
+              {genderedUsers.map((genderedUser) => (
                 <CardSwiper
                   className="swipe"
                   key={genderedUser.first_name}
